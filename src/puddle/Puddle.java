@@ -9,7 +9,8 @@ public class Puddle
 	{
 		var text = read("./data/test.pdl");
 		var lines = toLines(text);
-		print(lines);
+		var elements = ElementParser.parse(lines);
+		print(elements);
 	}
 
 	private static List<Line> toLines(String text)
