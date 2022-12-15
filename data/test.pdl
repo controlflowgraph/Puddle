@@ -25,3 +25,4 @@ p[10] = -100
 print(p)
 mp = {10: true, 20: false}
 print(1234567890)
+mp[1] = true
