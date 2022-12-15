@@ -28,6 +28,7 @@ public class Lexer
 				.replace("{", " { ")
 				.replace("}", " } ")
 				.replace(",", " , ")
+				.replace(":", " : ")
 				.replace("([+\\-*/%&|<>=])", " $1 ")
 				.split(" +")
 		)
