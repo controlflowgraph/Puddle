@@ -1,4 +1,5 @@
 import java.util.*;
+import static java.util.function.Predicate.not;
 
 public class Lexer
 {
@@ -15,7 +16,7 @@ public class Lexer
 
 	private static List<String> split(String text)
 	{
-		return Arrays.asList(
+		return Arrays.stream(
 			text
 				.trim()
 				.replace("(", " ( ")
@@ -24,6 +25,8 @@ public class Lexer
 				.replace("]", " ] ")
 				.replace("([+\\-*/%&|<>=])", " $1 ")
 				.split(" +")
-		);
+		)
+		.filter(not(String::isEmpty))
+		.toList();
 	}
 }
