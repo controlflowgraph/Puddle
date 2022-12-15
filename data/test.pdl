@@ -1,4 +1,4 @@
-fn t(a, b)
+fn t(a b)
 	ret (10, 20)
 
 t(1, 2)
