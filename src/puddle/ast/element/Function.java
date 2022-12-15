@@ -1,5 +1,10 @@
 package puddle.ast.element;
 
-import java.util.List;
+import java.util.*;
+import puddle.eval.*;
 
-public record Function(String name, List<String> parameter, Block block) implements Element { }
+public interface Function extends Element
+{
+	void eval(Context c);
+	Object call(Context c, List<Object> arguments);
+}

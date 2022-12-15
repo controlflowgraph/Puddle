@@ -1,3 +1,12 @@
 package puddle.ast.segment;
 
-public record Str(String value) implements Segment { }
+import puddle.eval.*;
+
+public record Str(String value) implements Segment
+{
+	@Override
+	public Object eval(Context c)
+	{
+		return this.value;
+	}
+}

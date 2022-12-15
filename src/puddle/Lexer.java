@@ -29,7 +29,7 @@ public class Lexer
 				.replace("}", " } ")
 				.replace(",", " , ")
 				.replace(":", " : ")
-				.replaceAll("([+\\-*/%&|<>=])", " $1 ")
+				.replaceAll("([+\\-*/%&|<>=]+)", " $1 ")
 				.split(" +")
 		)
 		.filter(not(String::isEmpty))

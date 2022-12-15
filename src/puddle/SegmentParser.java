@@ -39,18 +39,22 @@ public class SegmentParser
 				p.next();
 				int indentation = 1;
 				List<Segment> keys = new ArrayList<>();
-				while(p.has() && indentation > 0 && !p.nextIs("]"))
+				if(p.nextIs("]")) p.next();
+				else
 				{
-					List<String> keySub = new ArrayList<>();
-					while(p.has() && indentation > 0 && (indentation > 1 || !p.nextIs("]")))
+					while(p.has() && indentation > 0)
 					{
-						if(p.nextIs("[")) indentation++;
-						if(p.nextIs("]")) indentation--;
-						if(indentation > 0) keySub.add(p.next());
+						List<String> keySub = new ArrayList<>();
+						while(p.has() && indentation > 0 && (indentation > 1 || !p.nextIs(",")))
+						{
+							if(p.nextIs("[")) indentation++;
+							if(p.nextIs("]")) indentation--;
+							if(indentation > 0) keySub.add(p.next());
+						}
+						keys.add(parse(keySub));
+						p.next();
 					}
-					keys.add(parse(keySub));
 				}
-				p.next();
 				if(segments.isEmpty() || segments.get(segments.size() - 1) instanceof Operator)
 				{
 					segments.add(new Lst(keys));

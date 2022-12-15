@@ -11,11 +11,17 @@ if 10 == 20
 else
 	t(10, 20)
 
-while 10 < 20
-	t(10, 20)
+i = 0
+while i < 5
+	print(i)
+	i = i + 1
 
-for x in test
-	t(1, 2)
+numbers = [42, 69, 420]
+for x in numbers
+	print(x)
 
+p = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 p[10] = -100
+print(p)
 mp = {10: true, 20: false}
+print(1234567890)

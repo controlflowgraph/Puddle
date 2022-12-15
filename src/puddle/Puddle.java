@@ -3,6 +3,9 @@ package puddle;
 import java.util.*;
 import java.nio.file.*;
 
+import puddle.eval.*;
+import puddle.ast.element.*;
+
 public class Puddle
 {
 	public static void main(String[] args)
@@ -10,7 +13,20 @@ public class Puddle
 		var text = read("./data/test.pdl");
 		var lines = toLines(text);
 		var elements = ElementParser.parse(lines);
-		print(elements);
+		var all = new ArrayList<Element>();
+		all.add(new CallbackFunction("print", (c, a) -> {
+			System.out.println(String.join("    ", a.stream().map(Objects::toString).toList()));
+			return null;
+		}));
+		all.addAll(elements);
+		var context = eval(all);
+	}
+
+	private static Context eval(List<Element> elements)
+	{
+		var c = new Context();
+		elements.forEach(e -> e.eval(c));
+		return c;
 	}
 
 	private static List<Line> toLines(String text)

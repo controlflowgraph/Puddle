@@ -96,7 +96,7 @@ public class ElementParser
 			arguments.add(t.next());
 		}
 		Block body = parseBlock(p, l.offset() + 4);
-		return new Function(name, arguments, body);
+		return new UserFunction(name, arguments, body);
 	}
 
 	private static TokenProvider nextProvider(Line l)
