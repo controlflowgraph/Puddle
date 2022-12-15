@@ -1,3 +1,5 @@
+package puddle;
+
 import java.util.*;
 
 public class LineProvider extends Provider<Line>

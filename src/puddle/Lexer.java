@@ -1,3 +1,5 @@
+package puddle;
+
 import java.util.*;
 import static java.util.function.Predicate.not;
 
