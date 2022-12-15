@@ -6,13 +6,34 @@ Just run the `run.sh` file. The source file is currently specified in the `Puddl
 
 # Syntax
 Numbers: 42, 1.2, ...
+
 Booleans: true, false
+
 Unary: ! for booleans, - for numbers
+
 Binary: +, -, *, /, %, \<=, >=, ==, !=
+
 Functions:
+```
 fn test(a b)
   ret a + b
+```
 
-Map: {10: true, 20: false}
-List: \[1, 2, 3]
-Tuple: (1, 2, 3)
+If:
+```
+if 10 == 20
+  ...
+else
+  ...
+```
+
+For:
+```
+for x in \[1, 2, 3]
+  ...
+```
+
+Map: `{10: true, 20: false}`
+
+List: `[1, 2, 3]`
+Tuple: `(1, 2, 3)`
