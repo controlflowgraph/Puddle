@@ -17,5 +17,5 @@ while 10 < 20
 for x in test
 	t(1, 2)
 
-p[10] = 100
+p[10] = -100
 mp = {10: true, 20: false}
